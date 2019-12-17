@@ -1,0 +1,319 @@
+﻿@using SumoTech.Entity;
+@model  Item
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <link href="~/projectFiles/css/product.css" rel="stylesheet" />
+<div id="product-content" class="wrappers">
+    <div id="product-wrapper">
+        <div id="img-wrapper" class="product-item">
+            <img id="product-img" src="~/projectFiles/img/img1.jpg" alt="" class="card-img-left">
+        </div>
+        <div id="other-details" class="product-item">
+            <div class="content-wrapper">
+                <h4 class="part-header" style="font-size: 1.5rem;">@Model.Brand</h4>
+                <p id="product-name" class="card-p">@Model.Name</p>
+                <div id="seller">
+                    <p><i>Store: <a href="/Store/Home" class="store-name">Kadıköy - Sumo Tech</a></i></p>
+                </div>
+                <p id="price">&#65284 @Model.Price</p>
+            </div>
+
+            <div class="content-wrapper">
+                <div id="color-selection">
+                    <p class="part-header">Store</p>
+                    <form class="form-customize">
+                        <select class="customize">
+                            <option value="" selected disabled>Please select</option>
+                            <option value="1">Dark Grey</option>
+                            <option value="2">Blue</option>
+                            <option value="3">Red</option>
+                        </select>
+                    </form>
+                    <hr class="hr">
+                </div>
+                <div id="cart">
+                    <button id="add-cart" type="submit">Add to Cart</button>
+                </div>
+            </div>
+            <div class="content-wrapper">
+                <div id="description">
+                    <h3 class="part-header">Description</h3>
+                    <hr class="hr">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<hr class="hr">
+<div class="wrappers" style="padding-top: 2rem; padding-left: 1rem;">
+    <h3 class="part-header">Similar Products</h3>
+</div>
+<div id="slide" class="wrappers">
+    <div id="carousel-menu">
+        <!--Carousel Wrapper-->
+
+        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+            <!--Controls-->
+            <div class="controls-top">
+                <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fas fa-chevron-right"></i></a>
+            </div>
+            <!--/.Controls-->
+            <!--Indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                <li data-target="#multi-item-example" data-slide-to="1"></li>
+                <li data-target="#multi-item-example" data-slide-to="2"></li>
+            </ol>
+            <!--/.Indicators-->
+            <!--Slides-->
+            <div class="carousel-inner" role="listbox">
+
+                <!--First slide-->
+                <div class="carousel-item active">
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img1.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img2.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img3.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img4.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img5.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img6.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img7.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img8.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img1.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img2.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img3.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card" style="width: 100%;">
+                            <div class="img-wrapper">
+                                <a href="/Product/Detail">
+                                    <img src="~/projectFiles/img/img4.jpg" class="card-img-top" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Arçelik</h4>
+                                <p class="card-text card-p">49UM7100 49" 123 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV 49UM7100PLB.APDZ</p>
+                                <div class="card-price">
+                                    <p class="price">&#65284 400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <!--/.Slides-->
+
+        </div>
+    </div>
+</div>
+<script>
+        var img = document.getElementById("product-img");
+        img.style.cursor = "pointer";
+
+        img.addEventListener("mouseover", zoomIn);
+        img.addEventListener("mousemove", focus);
+        img.addEventListener("mouseout", zoomOut);
+
+        function zoomIn() { //zoomIn the canvas
+            img.style.transform = "scale(1.5)";
+        }
+
+        function zoomOut() { //zoomOut the canvas
+            img.style.transform = "scale(1)";
+        }
+
+        function focus(e) { //onmousemove change the x and y coordinates
+            img.style.transformOrigin = (e.pageX - 150 - img.offsetLeft) / img.width * 100 + "%" + (e.pageY - 150 - img.offsetTop) / img.height * 100 + "%";
+        }
+</script>
+
+

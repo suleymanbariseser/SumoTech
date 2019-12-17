@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "İnfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/projectFiles/css/cart.css" rel="stylesheet" />
+<div id="cart-wrapper" class="wrappers">
+    <div id="cart-info">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <ul class="list-group list-group-horizontal">
+                            <li class="list-group-item">
+                                <a href="">
+                                    <img class="cart-img" src="~/projectFiles/img/img1.jpg" alt="">
+                                </a>
+                            </li>
+                            <li class="list-group-item cart-name"><a href="">Second item</a></li>
+                        </ul>
+                    </th>
+                    <td>2</td>
+                    <td>
+                        <p>&#65284 400</p>
+                    </td>
+                    <td><button class="delete"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <ul class="list-group list-group-horizontal">
+                            <li class="list-group-item">
+                                <a href="">
+                                    <img class="cart-img" src="~/projectFiles/img/img2.jpg" alt="">
+                                </a>
+                            </li>
+                            <li class="list-group-item cart-name"><a href="">Second item</a></li>
+                        </ul>
+                    </th>
+                    <td>1</td>
+                    <td>
+                        <p>&#65284 400</p>
+                    </td>
+                    <td><button class="delete"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <ul class="list-group list-group-horizontal">
+                            <li class="list-group-item">
+                                <a href="">
+                                    <img class="cart-img" src="~/projectFiles/img/img3.jpg" alt="">
+                                </a>
+                            </li>
+                            <li class="list-group-item cart-name"><a href="">Second item</a></li>
+                        </ul>
+                    </th>
+                    <td>7</td>
+                    <td>
+                        <p>&#65284 400</p>
+                    </td>
+                    <td><button class="delete"><i class="fas fa-trash-alt"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="cart-price">
+        <div id="price-info">
+            <ul>
+                <li>Total: </li>
+                <li>
+                    <p>&#65284 1200</p>
+                </li>
+            </ul>
+        </div>
+        <button id="buy-btn">Buy Now</button>
+    </div>
+</div>

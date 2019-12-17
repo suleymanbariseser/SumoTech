@@ -1,0 +1,33 @@
+#employee-wrapper{
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#employee-img{
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+#employee-name{
+    font-style: italic;
+}
+
+.employee-item{
+    width: 100%;
+    display: block;
+}
+
+.description{
+    color: red;
+    font-size: 1.5rem;
+}
+
+#employee-description{
+    margin-top: 1rem;
+    padding: 1rem;
+}

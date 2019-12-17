@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/projectFiles/css/common.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/7c8a192b43.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="bootstrap/bootstrap_min.css">
+    <link rel="stylesheet" href="bootstrap/font-awesome.min.css">
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="bootstrap/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="nav-wrapper" class="wrappers">
+            <div id="logo" class="nav-element">
+                <a href="/Home/Index">
+                    <img src="~/projectFiles/img/logo.png" alt="">
+                </a>
+            </div>
+            <div id="user-wrapper" class="nav-element dropdown">
+                <ul class="user-selection">
+                    <li>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i><b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="register.html">Login</a></li>
+                                <li><a href="/User/Register">Register</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <a href="/User/Cart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="menu">
+        <div id="menu-wrapper" class="wrappers">
+            <ul id="menu-list">
+                <li><a href="/Home/Index/" class="menu-item">Home</a></li>
+                <li><a href="/Home/Index/1" class="menu-item">Computer</a></li>
+                <li><a href="/Home/Index/2" class="menu-item">Television</a></li>
+                <li><a href="/Home/Index/3" class="menu-item">Electronic</a></li>
+                <li><a href="/Home/Index/4" class="menu-item">Household</a></li>
+            </ul>
+        </div>
+    </div>
+
+    @RenderBody()
+
+
+    <footer class="bg-real-dark" style="padding: 2rem 0">
+        <div class="container py-5">
+            <div class="row py-4">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <p class="font-italic text-muted">Gratest of all time</p>
+                    <ul class="list-inline mt-4">
+                        <li class="list-inline-item"><a href="https://twitter.com/XhalSolo" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100009240172317" target="_blank" title="facebook"><i class="fab fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/suleymanbariseser/?hl=tr" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="https://gitlab.com/suleymanbariseser" target="_blank" title="instagram"><i class="fab fa-gitlab"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/s%C3%BCleyman-bar%C4%B1%C5%9F-eser-a891b8184/" target="_blank" title="instagram"><i class="fab fa-linkedin"></i></a></li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Shop</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-muted">For Women</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">For Men</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Stores</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Our Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Company</h6>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><a href="#" class="text-muted">Login</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Register</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Wishlist</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted">Our Products</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-lg-0">
+                    <h6 class="text-uppercase font-weight-bold mb-4">Newsletter</h6>
+                    <p class="text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
+                    <div class="p-1 rounded border">
+                        <div class="input-group">
+                            <input type="email" placeholder="Enter your email address" aria-describedby="button-addon1" class="form-control border-0 shadow-0">
+                            <div class="input-group-append">
+                                <button id="button-addon1" type="submit" class="btn btn-link"><i class="fa fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyrights -->
+        <div class="bg-real-dark py-4">
+            <div class="container text-center">
+                <p class="text-muted mb-0 py-2">© 2019 Bootstrapious All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- End -->
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+#store-info{
+    text-align: center;
+    width: 100%;
+}
+
+.store-address{
+    font-style: italic;
+    color: rgb(255,255,255,.5);
+}
+
+.store-number{
+    
+}
+.store-info-item{
+    width: 100%;
+    display: block;
+}
+
+.employee-card-wrapper{
+    width: 25%;
+    overflow: hidden;
+    padding: 1rem;
+    float: left;
+    padding: 1.2rem;
+}
+
+.employee-img{
+    border-radius: 50%;
+    border-bottom-left-radius: 0;
+    overflow: hidden;
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    background-color: transparent;
+    margin-bottom: .3rem;
+}
+
+.employee-name{
+    color: red;
+}

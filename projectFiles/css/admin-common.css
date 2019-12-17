@@ -1,0 +1,46 @@
+.edit-link{
+    font-size: 1.1rem;
+    color: orange;
+}
+
+.hr {
+    border-top: 1px solid rgb(255, 255, 255, .1);
+}
+
+.form-wrapper {
+    margin: 0 auto;
+    max-width: 800px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    padding: 4rem;
+}
+
+.form-element-wrapper {
+    margin-bottom: .1rem;
+    overflow: hidden;
+}
+
+.form-element {
+    width: 100%;
+    padding: .5rem;
+    background-color: #1a1a1a;
+    border: 1px solid rgb(255, 255, 255, .1);
+    border-radius: 3px;
+    color: #ebebeb;
+    outline: none;
+}
+
+.form-header {
+    color: orange;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.tab-link{
+    color: white;
+    padding: 0 .5rem;
+}
+
+

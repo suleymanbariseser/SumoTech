@@ -1,0 +1,26 @@
+#user-form-wrapper{
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#user-info{
+    border-right: 1px solid rgb(255,255,255,.1);
+}
+
+.user-element{
+    width: 50%;
+    float: left;
+    padding: 1rem;
+}
+
+.user-header{
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .user-element{
+        width: 100%;
+    }
+}

@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <link href="~/projectFiles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/projectFiles/css/simple-sidebar.css" rel="stylesheet">
+    <link href="~/projectFiles/css/admin-common.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7c8a192b43.js" crossorigin="anonymous"></script>
+    <script src="~/projectFiles/bootstrap/jquery-3.3.1.slim.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Admin Page</div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-dark">Stores</a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark">Items</a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark">Customers</a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark">Factory</a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark">Suppliers</a>
+                <a href="#" class="list-group-item list-group-item-action bg-dark">Employees</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a href="">Go Website</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+           @RenderBody()
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <script>
+    </script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const $tableID = $('#table');
+        const $BTN = $('#export-btn');
+        const $EXPORT = $('#export');
+
+        $tableID.on('click', '.table-remove', function() {
+
+            $(this).parents('tr').detach();
+        });
+
+        $tableID.on('click', '.table-up', function() {
+
+            const $row = $(this).parents('tr');
+
+            if ($row.index() === 1) {
+                return;
+            }
+
+            $row.prev().before($row.get(0));
+        });
+
+        $tableID.on('click', '.table-down', function() {
+
+            const $row = $(this).parents('tr');
+            $row.next().after($row.get(0));
+        });
+
+        // A few jQuery helpers for exporting only
+        jQuery.fn.pop = [].pop;
+        jQuery.fn.shift = [].shift;
+
+        $BTN.on('click', () => {
+
+            const $rows = $tableID.find('tr:not(:hidden)');
+            const headers = [];
+            const data = [];
+
+            // Get the headers (add special header logic here)
+            $($rows.shift()).find('th:not(:empty)').each(function() {
+
+                headers.push($(this).text().toLowerCase());
+            });
+
+            // Turn all existing rows into a loopable array
+            $rows.each(function() {
+                const $td = $(this).find('td');
+                const h = {};
+
+                // Use the headers from earlier to name our hash keys
+                headers.forEach((header, i) => {
+
+                    h[header] = $td.eq(i).text();
+                });
+
+                data.push(h);
+            });
+
+            // Output the result
+            $EXPORT.text(JSON.stringify(data));
+        });
+
+    </script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+    </script>
+
+</body>
+
+</html>

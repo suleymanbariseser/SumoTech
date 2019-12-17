@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="container wrapper">
+        <div class="form-wrapper">
+            <form class="register-form" action="register">
+                <h2 class="form-header">Register</h2>
+                <div class="form-element-wrapper">
+                    <p>First Name:</p>
+                    <input class="form-element" type="text" name="firstName" placeholder="First Name" required>
+                    <hr class="hr">
+                </div>
+
+                <div class="form-element-wrapper">
+                    <p>Last Name:</p>
+                    <input class="form-element" type="text" name="lastName" placeholder="Last Name" required>
+                    <hr class="hr">
+                </div>
+
+                <div class="form-element-wrapper">
+                    <p>Email:</p>
+                    <input class="form-element" type="email" name="email" placeholder="E-mail" required>
+                    <hr class="hr">
+                </div>
+
+                <div class="form-element-wrapper">
+                    <p>Phone Number:</p>
+                    <input class="form-element" type="tel" name="userName" placeholder="Phone Number" required>
+                    <hr class="hr">
+                </div>
+
+                <div class="form-element-wrapper">
+                    <p>User Name:</p>
+                    <input class="form-element" type="text" name="userName" placeholder="User Name" required>
+                    <hr class="hr">
+                </div>
+                <div class="form-element-wrapper">
+                    <p>Password:</p>
+                    <input class="form-element" type="password" name="password" placeholder="password" required>
+                    <hr class="hr">
+                </div>
+                <div class="form-element-wrapper">
+                    <p>Password validation:</p>
+                    <input class="form-element" type="password" name="passwordValidation" placeholder="password" required>
+                    <hr class="hr">
+                </div>
+                <div class="form-element-wrapper">
+                    <input class="submit" type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
