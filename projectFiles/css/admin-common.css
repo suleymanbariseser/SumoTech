@@ -6,11 +6,19 @@
 .hr {
     border-top: 1px solid rgb(255, 255, 255, .1);
 }
+a{
+    color: white !important;
+    text-decoration: none;
+    transition: .4s;
+}
+a:hover{
+    color: red!important;
+    text-decoration: underline;
+}
 
 .form-wrapper {
     margin: 0 auto;
     max-width: 800px;
-    border: 1px solid rgba(255, 255, 255, .1);
     border-radius: 5px;
     padding: 4rem;
 }

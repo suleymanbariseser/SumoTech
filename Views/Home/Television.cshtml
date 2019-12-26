@@ -1,0 +1,13 @@
+﻿@using SumoTech.Entity
+@model IEnumerable<Item>
+@{
+    ViewBag.Title = "Television";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/projectFiles/css/home.css">
+
+<div id="content">
+    <div id="content-wrapper" class="wrappers">
+        @Html.Partial("_ItemList", Model)
+    </div>
+</div>

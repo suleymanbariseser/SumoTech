@@ -39,11 +39,12 @@ p{
     margin: 0 auto;
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 .department{
     margin: .5rem 0;
-    color: rgb(255,255,255,.5);
+    color: rgba(255,255,255,.2);
 }
 
 #nav-wrapper {
@@ -177,7 +178,7 @@ p{
 }
 
 .hr {
-    border-top: 1px solid rgb(255, 255, 255, .1);
+    border-top: 1px solid rgba(255, 255, 255, .1);
 }
 
 .form-wrapper {
@@ -198,7 +199,7 @@ p{
     width: 100%;
     padding: .5rem;
     background-color: #1a1a1a;
-    border: 1px solid rgb(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .1);
     border-radius: 3px;
     color: #ebebeb;
     outline: none;

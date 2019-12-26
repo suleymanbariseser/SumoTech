@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <script src="~/projectFiles/bootstrap/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/projectFiles/bootstrap/bootstrap.bundle.min.js"></script>
+    <style>
+        .carousel-item {
+          height: 100vh;
+          min-height: 350px;
+          background: no-repeat center center scroll;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+        }
+    </style>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">Most Expensive Order</h2>
+                    <p class="lead"><a href="/User/Edit/@ViewBag.Id">@ViewBag.firstname @ViewBag.lastName</a></p>
+                    <p class="lead">@ViewBag.Price TL</p>
+                    <p class="lead">@ViewBag.year/@ViewBag.month/@ViewBag.day</p>
+                </div>
+            </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">Oldest Product</h2>
+                    <p class="lead">production Year : @ViewBag.production_year</p>
+                    <p class="lead">Brand : @ViewBag.brand</p>
+                    <p class="lead"><a href="/Product/Edit/@ViewBag.itemid">Name : @ViewBag.name</a></p>
+                    <p class="lead">Type : @ViewBag.type</p>
+                    <p class="lead"><a href="/Store/Edit/@ViewBag.storeid">GO STORE</a></p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>

@@ -14,37 +14,27 @@ namespace SumoTech.Controllers
         public List<Item> GetItems(int category)
         {
             List<Item> items = new List<Item>();
-            string conString = ConfigurationManager.ConnectionStrings["dataConnection"].ConnectionString;
-            SqlConnection connection = new SqlConnection(conString);
-            try
-            {
-                connection.Open();
-            }
-            catch (Exception ex)
-            {
-                Response.Write("error" + ex.ToString());
-                connection.Close();
-                return null;
-            }
+            DataContext db = new DataContext();
+            db.OpenConnection();
             String command = "";
 
             if (category == 1)
             {
-                command = "where item_type = Television";
+                command = " WHERE item_type = 'Television'";
             }
             else if (category == 2)
             {
-                command = "where item_type = Computer Part";
+                command = " WHERE item_type = 'Computer Part'";
             }
 
             else if (category == 3)
             {
-                command = "where item_type = Basic Electronics";
+                command = " WHERE item_type = 'Basic Electronic'";
             }
 
             else if (category == 4)
             {
-                command = "where item_type = HouseHold Applience";
+                command = " WHERE item_type = 'HouseHold Applience'";
             }
             else
             {
@@ -52,8 +42,7 @@ namespace SumoTech.Controllers
             }
 
             string cmdString = "SELECT * FROM Item" + command;
-            SqlCommand cmd = new SqlCommand(cmdString, connection);
-            SqlDataReader nwReader = cmd.ExecuteReader();
+            SqlDataReader nwReader = db.Execute(cmdString);
             while (nwReader.Read())
             {
                 Item item = new Item();
@@ -64,23 +53,45 @@ namespace SumoTech.Controllers
                 item.Production_year = (int)nwReader["production_year"];
                 item.Description = (string)nwReader["item_description"];
                 item.Type = (string)nwReader["item_type"];
+                if (item.Type == "Television")
+                {
+                    item.Image = "img1.jpg";
+                }
+                else if (item.Type == "Computer Part")
+                    item.Image = "img2.jpg";
+
+                else if (item.Type == "Basic Electronic")
+                    item.Image = "img3.jpg";
+                else if (item.Type == "HouseHold Applience")
+                    item.Image = "img4.jpg";
+                else
+                    item.Image = "nophoto.png";
                 items.Add(item);
             }
-            connection.Close();
+            nwReader.Close();
+            db.CloseConnection();
             return items;
         }
         // GET: Home
-        public ActionResult Index(string category)
+        public ActionResult Index()
         {
-            int categoryid;
-            if (category == null)
-                categoryid = 0;
-            else
-            {
-                categoryid = System.Convert.ToInt32(category);
-            }
-
-            return View(GetItems(categoryid).ToList());
+            return View(GetItems(0).ToList());
+        }
+        public ActionResult Television()
+        {
+            return View(GetItems(1).ToList());
+        }
+        public ActionResult Computer()
+        {
+            return View(GetItems(2).ToList());
+        }
+        public ActionResult Electronic()
+        {
+            return View(GetItems(3).ToList());
+        }
+        public ActionResult HouseHold()
+        {
+            return View(GetItems(4).ToList());
         }
     }
 }

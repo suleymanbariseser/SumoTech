@@ -8,14 +8,143 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
     <link href="~/projectFiles/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/projectFiles/css/simple-sidebar.css" rel="stylesheet">
     <link href="~/projectFiles/css/admin-common.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/7c8a192b43.js" crossorigin="anonymous"></script>
     <script src="~/projectFiles/bootstrap/jquery-3.3.1.slim.min.js"></script>
+    <style>
+        .container-fluid {
+            background-color: black;
+        }
+        body{
+            color: white!important;
+        }
+        .card-header{
+            background-color: black!important;
+        }
+        .card {
+            background-color: black;
+        }
 
+        .navbar {
+            background-color: #141414 !important;
+        }
 
+        .edit-link {
+            color: orange !important;
+            transition: .4s;
+        }
+
+        textarea::-webkit-scrollbar {
+            width: 12px;
+            color: white !important;
+        }
+
+        textarea::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        textarea::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+
+        .btn-outline-primary {
+            float: right;
+        }
+
+        .exchange-wrapper {
+            padding-bottom: .5rem;
+            border-bottom: 1px solid gray;
+            margin-bottom: 1rem;
+        }
+
+        .content-exchange {
+            background-color: transparent;
+            border: 1px solid gray;
+            outline: none !important;
+            font-size: 1.2rem;
+            border: none;
+            padding: 0 10px;
+            transition: .5s;
+            float: left;
+        }
+
+            .content-exchange:hover {
+                text-decoration: underline;
+                color: orange;
+            }
+
+            .content-exchange:focus {
+                outline: none !important;
+                color: red;
+            }
+
+        .bg-real-dark {
+            background-color: black !important;
+        }
+
+        p {
+            color: white !important;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+        }
+
+            button:focus {
+                outline: none;
+            }
+
+        .cover {
+            position: fixed;
+            width: 50rem;
+            height: 20rem;
+            margin: 5% auto; /* Will not center vertically and won't work in IE6/7. */
+            left: 0;
+            right: 0;
+            display: none;
+        }
+
+        .cover-caption {
+            background-color: rgba(255,255,255,.5);
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        #close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        .table{
+            color: white!important;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,22 +152,23 @@
     <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="bg-real-dark border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Admin Page</div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-dark">Stores</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark">Items</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark">Customers</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark">Factory</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark">Suppliers</a>
-                <a href="#" class="list-group-item list-group-item-action bg-dark">Employees</a>
+                <a href="/Admin/Home" class="list-group-item list-group-item-action bg-dark">Home</a>
+                <a href="/Admin/Item" class="list-group-item list-group-item-action bg-dark">Items</a>
+                <a href="/Admin/Customer" class="list-group-item list-group-item-action bg-dark">Customers</a>
+                <a href="/Admin/Supplier" class="list-group-item list-group-item-action bg-dark">Suppliers</a>
+                <a href="/Admin/Store" class="list-group-item list-group-item-action bg-dark">Stores</a>
+                <a href="/Admin/Employee" class="list-group-item list-group-item-action bg-dark">Employees</a>
+                <a href="/Admin/Factory" class="list-group-item list-group-item-action bg-dark">Factory</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
-        <div id="page-content-wrapper">
+        <div id="page-content-wrapper" class="bg-real-dark">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-real-dark border-bottom">
                 <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,15 +178,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a href="">Go Website</a>
+                            <a href="/Home/Index">Go Website</a>
                         </li>
                     </ul>
                 </div>
             </nav>
-           @RenderBody()
+            <div class="container-fluid">
+                <div class="card">
+
+
+                    @RenderBody()
+
+                </div>
+                <!-- Editable table -->
+            </div>
         </div>
         <!-- /#page-content-wrapper -->
-
     </div>
     <!-- /#wrapper -->
     <script>
@@ -64,17 +201,17 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <script>
         const $tableID = $('#table');
         const $BTN = $('#export-btn');
         const $EXPORT = $('#export');
 
-        $tableID.on('click', '.table-remove', function() {
-
+        $tableID.on('click', '.table-remove', function () {
             $(this).parents('tr').detach();
         });
 
-        $tableID.on('click', '.table-up', function() {
+        $tableID.on('click', '.table-up', function () {
 
             const $row = $(this).parents('tr');
 
@@ -85,7 +222,7 @@
             $row.prev().before($row.get(0));
         });
 
-        $tableID.on('click', '.table-down', function() {
+        $tableID.on('click', '.table-down', function () {
 
             const $row = $(this).parents('tr');
             $row.next().after($row.get(0));
@@ -102,13 +239,13 @@
             const data = [];
 
             // Get the headers (add special header logic here)
-            $($rows.shift()).find('th:not(:empty)').each(function() {
+            $($rows.shift()).find('th:not(:empty)').each(function () {
 
                 headers.push($(this).text().toLowerCase());
             });
 
             // Turn all existing rows into a loopable array
-            $rows.each(function() {
+            $rows.each(function () {
                 const $td = $(this).find('td');
                 const h = {};
 
@@ -128,11 +265,31 @@
     </script>
     <!-- Menu Toggle Script -->
     <script>
-        $("#menu-toggle").click(function(e) {
+        $("#menu-toggle").click(function (e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
 
+    </script>
+    <script>
+        function divop(i) {
+            if (i == 0) {
+                $("#cover").show("fast");
+            }
+            if (i == 1) {
+                $("#cover").hide(100);
+            }
+        }
+        function change(i) {
+            if (i == 1) {
+                $("#employees").show("slow");
+                $("#items").hide(1000);
+            }
+            if (i == 0) {
+                $("#items").show("slow");
+                $("#employees").hide(1000);
+            }
+        }
     </script>
 
 </body>

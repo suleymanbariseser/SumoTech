@@ -1,5 +1,4 @@
 ﻿@using SumoTech.Entity
-
 @model IEnumerable<Item>
 
 @{
@@ -9,25 +8,6 @@
 
 <div id="content">
     <div id="content-wrapper" class="wrappers">
-        @foreach (var item in Model)
-        {
-            <div class="card-wrapper">
-                <div class="card" style="width: 100%;">
-                    <div class="img-wrapper">
-                        <a href="/Product/Detail/@item.Id">
-                            <img src="~/projectFiles/img/img1.jpg" class="card-img-top" alt="">
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title">@item.Brand</h4>
-                        <p class="card-text card-p">@item.Name</p>
-                        <div class="card-price">
-                            <p class="price">&#65284 @item.Price</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
+        @Html.Partial("_ItemList", Model)
     </div>
-
 </div>

@@ -1,0 +1,102 @@
+﻿@using SumoTech.Entity
+@using SumoTech.Models
+@model OrderLine
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <div class="container">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-wrapper">
+                <h2 class="form-header">Edit Order Line</h2>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Destination_address, htmlAttributes: new { @class = "control-label col-md-5" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Destination_address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Destination_address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Update" class="btn btn-outline-primary" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <section id="cover" class="cover min-vh-100">
+        <div class="cover-caption">
+            <button id="close" onclick="divop(1)"><i class="fas fa-window-close"></i></button>
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <h4>New Address</h4>
+                        <div class="px-2">
+                            <form action="/OrderLine/NewOrderedItem/" class="justify-content-center">
+                                <div class="form-group" hidden>
+                                    <label class="sr-only">orderlineid</label>
+                                    <input type="number" value="@Model.Id" name="orderlineid" class="form-control" placeholder="orderlineid">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">itemid</label>
+                                    <input type="number" name="itemid" class="form-control" placeholder="Item Id">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">storeid</label>
+                                    <input type="number" name="storeid" class="form-control" placeholder="Store Id">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">quantity</label>
+                                    <input type="number" name="quantity" class="form-control" placeholder="Quantity">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div class="exchange-wrapper">
+    <button class="content-exchange">Order Lines</button>
+</div>
+<div class="container">
+    <div id="items">
+        <span class="table-add float-right mb-3 mr-2"><button class="text-success" onclick="divop(0)"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></button></span>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+                <tr>
+                    <th class="text-center">Store Id</th>
+                    <th class="text-center">Item Id</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Edit</th>
+                    <th class="text-center">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orderline in Model.OrderedItems)
+                {
+                    <tr>
+                        <td class="pt-3-half">@orderline.StoreId</td>
+                        <td class="pt-3-half">@orderline.ItemId</td>
+                        <td class="pt-3-half">@orderline.Quantity</td>
+                        <td class="pt-3-half">
+                            <span class="table-edit"><button class="row-btn"><i class="fas fa-edit"></i></button></span>
+                        </td>
+                        <td>
+                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0"><a href="">Remove</a></button></span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

@@ -1,0 +1,38 @@
+﻿@using SumoTech.Entity
+@model Supplier
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.Partial("_SupplierPartial", Model)
+
+<div class="exchange-wrapper">
+    <button onclick="change(0)" class="content-exchange">Items</button>
+</div>
+<div class="container">
+    <div id="items">
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+                <tr>
+                    <th class="text-center">Itemid</th>
+                    <th class="text-center">Edit</th>
+                    <th class="text-center">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in (List<int>)ViewBag.Items)
+                {
+                    <tr>
+                        <td class="pt-3-half">@item</td>
+                        <td class="pt-3-half">
+                            <a class="edit-link" href="/Product/Edit/@item"><i class="fas fa-edit"></i></a>
+                        </td>
+                        <td>
+                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0"><a href="/Product/Delete/@item">Remove</a></button></span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

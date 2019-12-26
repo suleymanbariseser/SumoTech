@@ -1,0 +1,167 @@
+﻿@using SumoTech.Entity
+@model Customer
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.Partial("_CustomerPartial", Model)
+
+    <section id="cover" class="cover min-vh-100">
+        <div class="cover-caption">
+            <button id="close" onclick="divop(1)"><i class="fas fa-window-close"></i></button>
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <h4>New Order Line</h4>
+                        <div class="px-2">
+                            <form action="/User/NewOrderLine/" class="justify-content-center">
+                                <div class="form-group" hidden>
+                                    <label class="sr-only">userid</label>
+                                    <input type="number" value="@Model.Id" name="userid" class="form-control" placeholder="User id">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">address</label>
+                                    <select name="address" class="form-element">
+                                        @if (Model.Address != null)
+                                        {
+                                            foreach (var address in Model.Address)
+                                            {
+                                                <option value="@address.Address_">@address.Address_</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="cover1" class="cover min-vh-100">
+        <div class="cover-caption">
+            <button id="close" onclick="address(0)"><i class="fas fa-window-close"></i></button>
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <h4>New Address</h4>
+                        <div class="px-2">
+                            <form action="/User/NewAddress/" class="justify-content-center">
+                                <div class="form-group" hidden>
+                                    <label class="sr-only">userid</label>
+                                    <input type="number" value="@Model.Id" name="userid" class="form-control" placeholder="Item id">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">country</label>
+                                    <input type="text" name="country" class="form-control" placeholder="Country">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">city</label>
+                                    <input type="text" name="city" class="form-control" placeholder="City">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">address</label>
+                                    <input type="text" name="address" class="form-control" placeholder="Address">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="exchange-wrapper">
+        <button onclick="changer(0)" class="content-exchange">Order Lines</button>
+        <button onclick="changer(1)" class="content-exchange">Addresses</button>
+    </div>
+    <div class="container">
+        <div id="orderlines">
+            <span class="table-add float-right mb-3 mr-2"><button class="text-success" onclick="divop(0)"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></button></span>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Destination Address</th>
+                        <th class="text-center">Date date</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model.OrderLine)
+                    {
+                        <tr>
+                            <td class="pt-3-half">@order.Price</td>
+                            <td class="pt-3-half">@order.Destination_address</td>
+                            <td class="pt-3-half">@order.Date</td>
+                            <td class="pt-3-half">
+                                <a class="edit-link" href="/OrderLine/Edit/@order.Id"><i class="fas fa-edit"></i></a>
+                            </td>
+                            <td>
+                                <span class="table-remove">
+                                    <button type="button"
+                                            class="btn btn-danger btn-rounded btn-sm my-0">
+                                        <a href="/User/DeleteOrderLine/@order.Id">Remove</a>
+                                    </button>
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div id="addresses" style="display: none;">
+            <span class="table-add float-right mb-3 mr-2"><button class="text-success" onclick="address(1)"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></button></span>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">Country</th>
+                        <th class="text-center">City</th>
+                        <th class="text-center">Address</th>
+                        <th class="text-center">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var address in Model.Address)
+                    {
+                        <tr>
+                            <td class="pt-3-half">@address.Country</td>
+                            <td class="pt-3-half">@address.City</td>
+                            <td class="pt-3-half">@address.Address_</td>
+                            <td>
+                                <span class="table-remove">
+                                    <button type="button"
+                                            class="btn btn-danger btn-rounded btn-sm my-0">
+                                        <a href="/User/DeleteAddress/@Model.Id?addressid=@address.Id">Remove</a>
+                                    </button>
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+    function changer(i) {
+            if (i == 0) {
+                $("#orderlines").show("slow");
+                $("#addresses").hide(1000);
+            }
+            if (i == 1) {
+                $("#addresses").show("slow");
+                $("#orderlines ").hide(1000);
+            }
+    }
+    function address(i) {
+        if (i == 1) {
+            $("#cover1").show("slow");
+        }
+        if (i == 0) {
+            $("#cover1").hide(1000);
+        }
+    }
+    </script>

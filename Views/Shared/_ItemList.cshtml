@@ -1,0 +1,23 @@
+﻿@using SumoTech.Entity
+@model IEnumerable<Item>
+
+    <link href="~/projectFiles/css/home.css" rel="stylesheet" />
+@foreach (var item in Model)
+{
+    <div class="card-wrapper">
+        <div class="card" style="width: 100%;">
+            <div class="img-wrapper">
+                <a href="/Product/Detail/@item.Id">
+                    <img src="~/projectFiles/img/@item.Image" class="card-img-top" alt="">
+                </a>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">@item.Brand</h4>
+                <p class="card-text card-p">@item.Name</p>
+                <div class="card-price">
+                    <p class="price">&#65284 @item.Price</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

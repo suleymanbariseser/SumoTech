@@ -1,32 +1,68 @@
-﻿
+﻿@using SumoTech.Entity
+@model Store
+
 @{
     ViewBag.Title = "Store";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <link href="~/projectFiles/css/store.css" rel="stylesheet" />
-    <div class="wrappers">
+
+<link href="~/projectFiles/css/store.css" rel="stylesheet" />
+
+<div class="wrappers">
+    <div style="width: 100%;">
         <div id="store-info">
             <p class="store-name store-info-item">
-                Kadıköy - Sumo Tech
+                @Model.
+                
             </p>
-            <p class="store-address store-info-item">Xxx mahallesi xxx.sokak x binası karşısı Kadıköy/Istanbul</p>
-            <p class="store-number store-info-item"><a href="tel:+905457226673">(+90) 5457226673</a></p>
-            <hr class="hr">
-            <h4>Employees</h4>
-            
+            <p class="store-address store-info-item">@Model.Address /@Model.City/@Model.Country</p>
+            <p class="store-number store-info-item">Phone Number : <a id="phone-number" href="tel:@Model.Phone">@Model.Phone</a></p>
+        </div>
+        <hr class="hr">
+        <div id="header-wrapper">
+            <div class="fa-header">
+                <h4><button id="employees-header" class="active-btn" onclick="selection(0)">Employees</button></h4>
+            </div>
+
+            <div class="fa-header">
+                <h4><button id="items-header" onclick="selection(1)">Items</button></h4>
+            </div>
+        </div>
+        <div id="employees-wrapper">
+            @foreach (var employee in Model.Employees)
+            {
                 <div id="employees">
                     <div class="employee-card-wrapper">
                         <a href="/Store/Employee">
                             <img src="~/projectFiles/img/nouser.png" class="employee-img">
                         </a>
-                            <div class="employee-description">
-                                <h5 class="employee-name">Suleyman Barış Eser</h5>
-                                <h6 class="department">Seller Manager</h6>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos ratione ab deleniti nisi voluptas maxime eveniet reprehenderit laborum eligendi, illo molestiae, saepe architecto ut quis porro placeat vitae doloribus aut.</p>
-                            </div>
+                        <div class="employee-description">
+                            <h5 class="employee-name">@employee.FirstName @employee.LastName</h5>
+                        </div>
                     </div>
                 </div>
-            
-
+            }
+        </div>
+        <div id="items-wrapper" style="display: none;">
+            @Html.Partial("_ItemList", Model.Items)
         </div>
     </div>
+</div>
+<script>
+    function selection(i) {
+        if (i == 0) {
+            $("#items-header").removeClass("active-btn");
+            $("#employees-header").addClass("active-btn");
+            $("#employees-wrapper").show("slow");
+            $("#items-wrapper").css("display", "none");
+        }
+        if (i == 1) {
+            $("#employees-header").removeClass("active-btn");
+            $("#items-header").addClass("active-btn");
+            $("#items-wrapper").show("slow");
+            $("#employees-wrapper").css("display", "none");
+        }
+    }
+
+
+</script>

@@ -1,0 +1,44 @@
+﻿@using SumoTech.Entity
+@model IEnumerable<Customer>
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<title>Customer</title>
+<div id="invisible-wrapper">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Customers</h3>
+    <div class="card-body">
+        <div id="table" class="table-editable">
+            <span class="table-add float-right mb-3 mr-2"><a href="/User/Create" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">First Name</th>
+                        <th class="text-center">Last Name</th>
+                        <th class="text-center">Phone</th>
+                        <th class="text-center">Email</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var customer in Model)
+                    {
+                        <tr>
+                            <td class="pt-3-half">@customer.FirstName</td>
+                            <td class="pt-3-half">@customer.LastName</td>
+                            <td class="pt-3-half"><a href="tel:@customer.Phone">@customer.Phone</a></td>
+                            <td class="pt-3-half"><a href="mailto: @customer.Email">@customer.Email</a></td>
+                            <td class="pt-3-half">
+                                <a class="edit-link" href="/User/Edit/@customer.Id"><i class="fas fa-edit"></i></a>
+                            </td>
+                            <td>
+                                <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0"><a href="/User/Delete/@customer.Id">Remove</a></button></span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

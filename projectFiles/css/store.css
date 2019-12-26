@@ -1,13 +1,49 @@
 #store-info{
-    text-align: center;
     width: 100%;
 }
 
 .store-address{
     font-style: italic;
-    color: rgb(255,255,255,.5);
+    color: rgba(255,255,255,.5);
 }
 
+#header-wrapper {
+    width: 100%;
+}
+
+.fa-header {
+    width: 50%;
+    float: left;
+}
+
+#phone-number {
+    color: red !important;
+    text-decoration: underline !important;
+}
+
+.fa-header button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    transition: .4s;
+    padding: .5rem;
+    border-radius: .5rem;
+    outline: none;
+}
+
+    .fa-header button:hover {
+        background-color: orange;
+        color: black;
+    }
+
+.active-btn {
+    background-color: red !important;
+    color: black;
+}
+
+.fa-header button:active {
+    background-color: red;
+}
 .store-number{
     
 }

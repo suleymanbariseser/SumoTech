@@ -1,0 +1,75 @@
+﻿@using SumoTech.Entity
+@model IEnumerable<Item>
+@{
+    ViewBag.Title = "Item";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<title>Item</title>
+
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Items</h3>
+    <div class="card-body">
+        <div id="table" class="table-editable">
+            <div class="dropdown dropleft float-right mb-3 mr-2">
+                    <button type="button" class="btn" data-toggle="dropdown">
+                        <i class="fas fa-plus fa-2x" style="color: green" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="dropdown-menu bg-real-dark">
+                        <a class="dropdown-item" href="/Product/CreateTelevision">Television</a>
+                        <a class="dropdown-item" href="/Product/CreateElectronic">Basic Electronic</a>
+                        <a class="dropdown-item" href="/Product/CreateHouseHold">Household</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/Product/CreateRAM">RAM</a>
+                        <a class="dropdown-item" href="/Product/CreateCPU">CPU</a>
+                        <a class="dropdown-item" href="/Product/CreateGPU">GPU</a>
+                        <a class="dropdown-item" href="/Product/CreateHarddisk">Hard-Disk</a>
+                    </div>
+            </div>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">Id</th>
+                        <th class="text-center">Brand</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Production Year</th>
+                        <th class="text-center">Description</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td class="pt-3-half">@item.Id</td>
+                        <td class="pt-3-half">@item.Brand</td>
+                        <td class="pt-3-half">@item.Name</td>
+                        <td class="pt-3-half">@item.Price</td>
+                        <td class="pt-3-half">@item.Production_year</td>
+                        @if (item.Description.Length > 50)
+                        {
+                            <td class="pt-3-half">@item.Description.Substring(0, 70) ...</td>
+                        }
+                        else
+                        {
+                            <td class="pt-3-half">@item.Description</td>
+                        }
+                        <td class="pt-3-half">@item.Type</td>
+                        <td class="pt-3-half">
+                            <a class="edit-link" href="/Product/Edit/@item.Id"><i class="fas fa-edit"></i></a>
+                        </td>
+                        <td>
+                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0"><a href="/Product/Delete/@item.Id">Remove</a></button></span>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

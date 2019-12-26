@@ -1,0 +1,102 @@
+﻿@using SumoTech.Entity
+@using SumoTech.Models
+@model Store
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@Html.Partial("_StorePartial", Model)
+    
+    <section id="cover" class="cover min-vh-100">
+        <div class="cover-caption">
+            <button id="close" onclick="divop(1)"><i class="fas fa-window-close"></i></button>
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <h4>New Item</h4>
+                        <div class="px-2">
+                            <form action="/Store/Insert/" class="justify-content-center">
+                                <div class="form-group" hidden>
+                                    <label class="sr-only">storeid</label>
+                                    <input type="number" name="storeid" value="@Model.Id" class="form-control" placeholder="Store id">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">itemid</label>
+                                    <input type="number" name="itemid" class="form-control" placeholder="Item id">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only">quantity</label>
+                                    <input type="number" name="quantity" class="form-control" placeholder="Quantity">
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="exchange-wrapper">
+    <button onclick="change(0)" class="content-exchange">Items</button>
+    <button onclick="change(1)" class="content-exchange">Employees</button>
+</div>
+<div class="container">
+    <div id="items">
+        <span class="table-add float-right mb-3 mr-2"><button class="text-success" onclick="divop(0)"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></button></span>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+                <tr>
+                    <th class="text-center">Itemid</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in (List<StoreItem>)ViewBag.storeItems)
+                {
+                    <tr>
+                        <td class="pt-3-half">@item.Itemid</td>
+                        <td class="pt-3-half">@item.Quantity</td>
+                        <td>
+                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0"><a href="/Store/DeleteItem/?storeid=@item.Storeid&itemid=@item.Itemid">Remove</a></button></span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div id="employees" style="display:none;">
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+                <tr>
+                    <th class="text-center">First Name</th>
+                    <th class="text-center">Last Name</th>
+                    <th class="text-center">Phone</th>
+                    <th class="text-center">Salary</th>
+                    <th class="text-center">Hire Date</th>
+                    <th class="text-center">Edit</th>
+                    <th class="text-center">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr>
+                        <td class="pt-3-half">@employee.FirstName</td>
+                        <td class="pt-3-half">@employee.LastName</td>
+                        <td class="pt-3-half"><a href="tel:@employee.Phone">@employee.Phone</a></td>
+                        <td class="pt-3-half">@employee.Salary</td>
+                        <td class="pt-3-half">@employee.HireTime</td>
+                        <td class="pt-3-half">
+                            <a class="edit-link" href="/Employee/Edit/@employee.Id"><i class="fas fa-edit"></i></a>
+                        </td>
+                        <td>
+                            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

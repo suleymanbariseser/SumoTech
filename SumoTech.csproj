@@ -50,7 +50,30 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="IdentityModel, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e7877f4675df049f, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.4.1.1\lib\net472\IdentityModel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -112,6 +135,7 @@
     <Content Include="projectFiles\css\admin-common.css" />
     <Content Include="projectFiles\css\common.css" />
     <Content Include="projectFiles\css\employee.css" />
+    <Content Include="projectFiles\css\errorpage.css" />
     <Content Include="projectFiles\css\home.css" />
     <Content Include="projectFiles\css\product.css" />
     <Content Include="projectFiles\css\simple-sidebar.css" />
@@ -123,12 +147,8 @@
     <Content Include="projectFiles\img\img2.jpg" />
     <Content Include="projectFiles\img\img3.jpg" />
     <Content Include="projectFiles\img\img4.jpg" />
-    <Content Include="projectFiles\img\img5.jpg" />
-    <Content Include="projectFiles\img\img6.jpg" />
-    <Content Include="projectFiles\img\img7.jpg" />
-    <Content Include="projectFiles\img\img8.jpg" />
-    <Content Include="projectFiles\img\iphone11pro.jpg" />
     <Content Include="projectFiles\img\logo.png" />
+    <Content Include="projectFiles\img\nophoto.png" />
     <Content Include="projectFiles\img\nouser.png" />
     <Content Include="projectFiles\img\solo.html" />
     <Content Include="projectFiles\vendor\bootstrap\css\bootstrap-grid.css" />
@@ -159,6 +179,10 @@
     <Content Include="projectFiles\vendor\bootstrap\js\bootstrap.min.js.map" />
     <Content Include="projectFiles\vendor\jquery\jquery.min.map" />
     <Content Include="projectFiles\vendor\jquery\jquery.slim.min.map" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -176,23 +200,48 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\FactoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderLineController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Entity\Customer.cs" />
+    <Compile Include="Entity\UserMain.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\BasicElectronic.cs" />
+    <Compile Include="Models\CPU.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Entity\DataContext.cs" />
-    <Compile Include="Entity\Employee.cs" />
-    <Compile Include="Entity\Factory.cs" />
-    <Compile Include="Entity\HouseHold.cs" />
-    <Compile Include="Entity\Item.cs" />
-    <Compile Include="Entity\OrderLine.cs" />
-    <Compile Include="Entity\Store.cs" />
-    <Compile Include="Entity\Supplier.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Entity\EmployeeMain.cs" />
+    <Compile Include="Models\Factory.cs" />
+    <Compile Include="Entity\FactoryMain.cs" />
+    <Compile Include="Models\GPU.cs" />
+    <Compile Include="Models\Harddisk.cs" />
+    <Compile Include="Models\HouseHold.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Entity\ItemMain.cs" />
+    <Compile Include="Models\OrderedItem.cs" />
+    <Compile Include="Models\OrderLine.cs" />
+    <Compile Include="Models\RAM.cs" />
+    <Compile Include="Models\Store.cs" />
+    <Compile Include="Entity\StoreMain.cs" />
+    <Compile Include="Models\StoreItem.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Entity\SupplierMain.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Television.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -212,6 +261,47 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Admin\Store.cshtml" />
+    <Content Include="Views\Shared\_ItemList.cshtml" />
+    <Content Include="Views\Home\Television.cshtml" />
+    <Content Include="Views\Home\Computer.cshtml" />
+    <Content Include="Views\Home\HouseHold.cshtml" />
+    <Content Include="Views\Home\Electronic.cshtml" />
+    <Content Include="Views\Admin\Item.cshtml" />
+    <Content Include="Views\Admin\Customer.cshtml" />
+    <Content Include="Views\Admin\Supplier.cshtml" />
+    <Content Include="Views\Admin\Employee.cshtml" />
+    <Content Include="Views\Admin\Factory.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Store\Edit.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Factory\Edit.cshtml" />
+    <Content Include="Views\Supplier\Edit.cshtml" />
+    <Content Include="Views\Store\Create.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\Supplier\Create.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Shared\_ItemPartial.cshtml" />
+    <Content Include="Views\Shared\_FactoryPartial.cshtml" />
+    <Content Include="Views\Shared\_EmployeePartial.cshtml" />
+    <Content Include="Views\Shared\_StorePartial.cshtml" />
+    <Content Include="Views\Shared\_SupplierPartial.cshtml" />
+    <Content Include="Views\Shared\_CustomerPartial.cshtml" />
+    <Content Include="Views\Factory\Create.cshtml" />
+    <Content Include="Views\Shared\_Employees.cshtml" />
+    <Content Include="Views\Product\CreateRam.cshtml" />
+    <Content Include="Views\Product\CreateCPU.cshtml" />
+    <Content Include="Views\Product\CreateGPU.cshtml" />
+    <Content Include="Views\Product\CreateHarddisk.cshtml" />
+    <Content Include="Views\Product\CreateElectronic.cshtml" />
+    <Content Include="Views\Product\CreateTelevision.cshtml" />
+    <Content Include="Views\Product\CreateHousehold.cshtml" />
+    <Content Include="Views\OrderLine\Edit.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\OrderLine\NewOrderedItem.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Admin\Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -221,7 +311,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

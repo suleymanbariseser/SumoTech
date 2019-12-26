@@ -1,14 +1,16 @@
 ﻿@using SumoTech.Entity;
 @model  Item
+
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
     <link href="~/projectFiles/css/product.css" rel="stylesheet" />
 <div id="product-content" class="wrappers">
     <div id="product-wrapper">
         <div id="img-wrapper" class="product-item">
-            <img id="product-img" src="~/projectFiles/img/img1.jpg" alt="" class="card-img-left">
+            <img id="product-img" src="~/projectFiles/img/nophoto.png" alt="" class="card-img-left">
         </div>
         <div id="other-details" class="product-item">
             <div class="content-wrapper">
@@ -21,22 +23,34 @@
             </div>
 
             <div class="content-wrapper">
-                <div id="color-selection">
-                    <p class="part-header">Store</p>
-                    <form class="form-customize">
-                        <select class="customize">
-                            <option value="" selected disabled>Please select</option>
-                            <option value="1">Dark Grey</option>
-                            <option value="2">Blue</option>
-                            <option value="3">Red</option>
-                        </select>
+                <div id="store-selection">
+                    <form action="/" method="post">
+                        <p class="part-header">Store</p>
+                        <div class="form-group">
+                            <select multiple class="form-control" id="exampleFormControlSelect2" style="background-color: black !important;">
+                                <option>
+                                <div>
+                                    <p style="width: 100%; display: block;">solo</p>
+                                    <p style="width: 100%; display: block;">solo</p>
+                                </div>
+                                </option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <hr class="hr" />
+                        <p class="part-header">Quantity</p>
+
+                        <hr class="hr"/>
+                        <div id="cart">
+                            <input id="add-cart" value="Add To Cart" type="submit" />
+                        </div>
                     </form>
-                    <hr class="hr">
-                </div>
-                <div id="cart">
-                    <button id="add-cart" type="submit">Add to Cart</button>
                 </div>
             </div>
+
             <div class="content-wrapper">
                 <div id="description">
                     <h3 class="part-header">Description</h3>
