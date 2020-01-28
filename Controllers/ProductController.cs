@@ -1,6 +1,7 @@
 ﻿using SumoTech.Entity;
 using SumoTech.Models;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,6 +12,10 @@ namespace SumoTech.Controllers
     public class ProductController : Controller
     {
         DataContext dataContext = new DataContext();
+        SupplierMain supplierMain = new SupplierMain();
+        FactoryMain factoryMain = new FactoryMain();
+        List<Supplier> suppliers;
+
         public Item getItem(int id)
         {
             Item item = new Item();
@@ -90,6 +95,8 @@ namespace SumoTech.Controllers
         }
         public ActionResult CreateRam()
         {
+            suppliers = supplierMain.GetAllSuppliers();
+            ViewBag.suppliers = suppliers;
             return View();
         }
         [HttpPost]
@@ -121,6 +128,8 @@ namespace SumoTech.Controllers
         }
         public ActionResult CreateCPU()
         {
+            suppliers = supplierMain.GetAllSuppliers();
+            ViewBag.suppliers = suppliers;
             return View();
         }
         [HttpPost]
@@ -151,6 +160,8 @@ namespace SumoTech.Controllers
         }
         public ActionResult CreateGPU()
         {
+            suppliers = supplierMain.GetAllSuppliers();
+            ViewBag.suppliers = suppliers;
             return View();
         }
         [HttpPost]
@@ -181,6 +192,8 @@ namespace SumoTech.Controllers
         }
         public ActionResult CreateHarddisk()
         {
+            suppliers = supplierMain.GetAllSuppliers();
+            ViewBag.suppliers = suppliers;
             return View();
         }
         [HttpPost]
@@ -210,13 +223,15 @@ namespace SumoTech.Controllers
         }
         public ActionResult CreateElectronic()
         {
+            suppliers = supplierMain.GetAllSuppliers();
+            ViewBag.suppliers = suppliers;
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateElectronic(BasicElectronic basicElectronic)
         {
-            SqlCommand sql = new SqlCommand("InsertHarddisk", dataContext.GetConnection());
+            SqlCommand sql = new SqlCommand("InsertBasicElectronic", dataContext.GetConnection());
             sql.CommandType = System.Data.CommandType.StoredProcedure;
             sql.Parameters.AddWithValue("@brand", basicElectronic.Brand);
             sql.Parameters.AddWithValue("@name", basicElectronic.Name);
@@ -239,6 +254,8 @@ namespace SumoTech.Controllers
         }
         public ActionResult CreateTelevision()
         {
+            suppliers = supplierMain.GetAllSuppliers();
+            ViewBag.suppliers = suppliers;
             return View();
         }
         [HttpPost]
@@ -273,6 +290,7 @@ namespace SumoTech.Controllers
         }
         public ActionResult CreateHousehold()
         {
+            ViewBag.factories = factoryMain.GetAllFactories();
             return View();
         }
         [HttpPost]

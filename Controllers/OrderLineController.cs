@@ -49,7 +49,7 @@ namespace SumoTech.Controllers
 
             return View(orderLine);
         }
-        public ActionResult NewOrderedItem(int orderlineid, int storeid,int itemid, int quantity)
+        public ActionResult NewOrderedItem(int orderlineid, int itemid,int storeid, int quantity)
         {
             int temp = 0;
             string control = "SELECT quantity FROM StoreItem WHERE itemid = " + itemid + " AND storeid = " + storeid;
@@ -62,8 +62,8 @@ namespace SumoTech.Controllers
             dataContext.CloseConnection();
             Response.Write("sadad");
             string cmd = "INSERT INTO OrderedItem (orderlineid, itemid, storeid,quantity)" +
-                " VALUES (" + orderlineid + ", " + storeid + "," + itemid + ", " + quantity + ")";
-
+                " VALUES (" + orderlineid + ", " + itemid + "," + storeid + ", " + quantity + ")";
+            
             SqlCommand sqlCommand = new SqlCommand(cmd, dataContext.GetConnection());
             dataContext.OpenConnection();
             try
